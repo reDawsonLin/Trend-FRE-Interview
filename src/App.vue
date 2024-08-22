@@ -50,13 +50,13 @@ const schema = Yup.object().shape({
 // submit -------
 const error_formSubmitted = ref(false);
 const onSubmit = async (value) => {
+  error_formSubmitted.value = false;
+
   if (!data_signUp.value.policyCheck) {
     alert("Please check the policy");
     return;
   }
 
-  console.log("value :>> ", value);
-  error_formSubmitted.value = false;
   alert("create account success!");
 };
 
@@ -216,12 +216,14 @@ const onInvalidSubmit = (error) => {
             <Icons v-show="data_signUp.policyCheck" name="checkPure" />
           </label>
           <p>
-            By creating account, you agree to accept our Privacy Policy, Terms of Service
-            and Notification settings.
+            By creating account, you agree to accept our Privacy Policy, Terms
+            of Service and Notification settings.
           </p>
         </div>
 
-        <ButtonCTA type="submit" class="btn_cta" form="formLogin">Create an Free Account! </ButtonCTA>
+        <ButtonCTA type="submit" class="btn_cta" form="formLogin"
+          >Create an Free Account!
+        </ButtonCTA>
 
         <p class="member_current">
           Already have an account?
@@ -493,5 +495,4 @@ hgroup {
     }
   }
 }
-
 </style>
