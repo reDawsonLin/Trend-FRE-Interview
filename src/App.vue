@@ -83,7 +83,7 @@ const onInvalidSubmit = (error) => {
           <h1>Create an account</h1>
         </hgroup>
 
-        <div v-if="false" class="callout_error">
+        <div v-if="error_formSubmitted" class="callout_error">
           <Icons name="warn" />
           <p class="">Please complete all the required fields to proceed.</p>
         </div>
@@ -300,6 +300,7 @@ hgroup {
 
 .callout_error {
   display: flex;
+  align-items: flex-start;
   gap: 0.75rem;
   padding: 1rem;
   font-size: 1rem;
@@ -309,6 +310,7 @@ hgroup {
 
   > .box_icon {
     width: 1rem;
+    color: var(--warning);
   }
 }
 
